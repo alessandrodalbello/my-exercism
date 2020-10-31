@@ -1,0 +1,19 @@
+name: space-age
+version: 1.2.0.6
+
+dependencies:
+  - base
+
+library:
+  exposed-modules: SpaceAge
+  source-dirs: src
+  ghc-options: -Wall
+
+tests:
+  test:
+    main: SpaceAgeSpec.hs
+    source-dirs: test
+    dependencies:
+      - space-age
+      - hspec
+      - QuickCheck
