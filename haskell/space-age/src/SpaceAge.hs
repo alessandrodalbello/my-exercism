@@ -10,15 +10,15 @@ data Planet = Mercury
             | Neptune
 
 ageOn :: Fractional a => Planet -> a -> a
-ageOn planet secs = case planet
-                        of Mercury -> earthYear 0.2408467 secs
-                           Venus   -> earthYear 0.61519726 secs
-                           Earth   -> earthYear 1 secs
-                           Mars    -> earthYear 1.8808158 secs
-                           Jupiter -> earthYear 11.862615 secs
-                           Saturn  -> earthYear 29.447498 secs
-                           Uranus  -> earthYear 84.016846 secs
-                           Neptune -> earthYear 164.79132 secs
+ageOn planet seconds = seconds / yearPeriod planet / 31557600
 
-earthYear :: Fractional a => a -> a -> a
-earthYear period seconds = seconds / period / 31557600
+yearPeriod :: Fractional a => Planet -> a
+yearPeriod planet = case planet 
+                      of Mercury -> 0.2408467
+                         Venus   -> 0.61519726
+                         Earth   -> 1.0
+                         Mars    -> 1.8808158
+                         Jupiter -> 11.862615
+                         Saturn  -> 29.447498
+                         Uranus  -> 84.016846
+                         Neptune -> 164.79132
