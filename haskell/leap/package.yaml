@@ -16,3 +16,4 @@ tests:
     dependencies:
       - leap
       - hspec
+      - QuickCheck
