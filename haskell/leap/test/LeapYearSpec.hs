@@ -1,4 +1,4 @@
-import Test.Hspec      (Spec, describe, hspec, it, shouldBe)
+import Test.Hspec      (Spec, describe, hspec, it)
 import Test.QuickCheck (Gen, choose, forAll, property, suchThat)
 
 import LeapYear (isLeapYear)
