@@ -1,0 +1,19 @@
+name: bob
+version: 1.4.0.10
+
+dependencies:
+  - base
+  - text
+
+library:
+  exposed-modules: Bob
+  source-dirs: src
+  ghc-options: -Wall
+
+tests:
+  test:
+    main: BobSpec.hs
+    source-dirs: test
+    dependencies:
+      - bob
+      - hspec
