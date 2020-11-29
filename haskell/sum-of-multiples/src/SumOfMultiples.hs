@@ -1,11 +1,12 @@
 module SumOfMultiples (sumOfMultiples) where
 
-import Data.List (union)
+import qualified Data.Set as Set
+import           Data.Set (Set)
 
 sumOfMultiples :: [Integer] -> Integer -> Integer
-sumOfMultiples factors limit = sum $ foldl union [] $ map (`multiples` limit) factors
+sumOfMultiples factors limit = sum $ Set.unions $ map (`multiples` limit) factors
 
-multiples :: Integer -> Integer -> [Integer]
+multiples :: Integer -> Integer -> Set Integer
 multiples factor limit
-    | factor == 0 = []
-    | otherwise   = takeWhile (< limit) [factor, factor * 2..]
+    | factor == 0 = Set.empty
+    | otherwise   = Set.fromDistinctAscList [factor, factor * 2..limit - 1]
