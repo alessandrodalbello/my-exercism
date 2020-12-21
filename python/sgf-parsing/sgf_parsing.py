@@ -39,7 +39,6 @@ def __parse_node(input_string):
         return (None, input_string)
     
     node_level = 1
-    in_property = False
     escaped = False
     i = 1
     while i < len(input_string):
@@ -47,16 +46,12 @@ def __parse_node(input_string):
             escaped = False
         else:
             c = input_string[i]
-            if c == ")" and not in_property:
+            if c == ")":
                 node_level -= 1
                 if node_level == 0:
                     break
-            elif c == "(" and not in_property:
+            elif c == "(":
                 node_level += 1
-            elif c == "[":
-                in_property = True
-            elif c == "]":
-                in_property = False
             elif c == "\\":
                 escaped = True
         i += 1
