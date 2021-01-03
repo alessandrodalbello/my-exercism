@@ -1,11 +1,7 @@
 class Matrix:
     def __init__(self, matrix_string):
         rows = matrix_string.split("\n")
-        self.matrix = list(map(lambda row: self.__ints(row), rows))
-
-    def __ints(self, row):
-        numbs = row.split(" ")
-        return list(map(lambda n: int(n), numbs))
+        self.matrix = [ list(map(int, row.split(" "))) for row in rows ]
 
     def row(self, index):
         return self.matrix[index - 1]
