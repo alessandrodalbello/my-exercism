@@ -1,7 +1,9 @@
-from collections import Counter
-from re import sub
-
 def is_isogram(string):
-    s = sub(r"[^a-zA-Z]+", "", string).lower()
-    counter = Counter(s)
-    return not list(filter(lambda v: v > 1, counter.values()))
+    chars = set()
+    for c in string.lower():
+        if c.isalpha():
+            if c not in chars:
+                chars.add(c)
+            else:
+                return False
+    return True
